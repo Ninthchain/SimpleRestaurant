@@ -1,0 +1,13 @@
+C:\Users\Drago\RiderProjects\MyRestaurant\MyRestaurant\bin\Debug\MyRestaurant.exe.config
+C:\Users\Drago\RiderProjects\MyRestaurant\MyRestaurant\bin\Debug\MyRestaurant.exe
+C:\Users\Drago\RiderProjects\MyRestaurant\MyRestaurant\bin\Debug\MyRestaurant.pdb
+C:\Users\Drago\RiderProjects\MyRestaurant\MyRestaurant\bin\Debug\EntityFramework.dll
+C:\Users\Drago\RiderProjects\MyRestaurant\MyRestaurant\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Drago\RiderProjects\MyRestaurant\MyRestaurant\bin\Debug\EntityFramework.xml
+C:\Users\Drago\RiderProjects\MyRestaurant\MyRestaurant\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Drago\RiderProjects\MyRestaurant\MyRestaurant\obj\Debug\MyRestaurant.csproj.AssemblyReference.cache
+C:\Users\Drago\RiderProjects\MyRestaurant\MyRestaurant\obj\Debug\MyRestaurant.csproj.SuggestedBindingRedirects.cache
+C:\Users\Drago\RiderProjects\MyRestaurant\MyRestaurant\obj\Debug\MyRestaurant.csproj.CoreCompileInputs.cache
+C:\Users\Drago\RiderProjects\MyRestaurant\MyRestaurant\obj\Debug\MyRestaurant.csproj.CopyComplete
+C:\Users\Drago\RiderProjects\MyRestaurant\MyRestaurant\obj\Debug\MyRestaurant.exe
+C:\Users\Drago\RiderProjects\MyRestaurant\MyRestaurant\obj\Debug\MyRestaurant.pdb
