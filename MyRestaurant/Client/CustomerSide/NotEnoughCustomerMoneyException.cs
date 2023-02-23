@@ -1,5 +1,4 @@
 using System;
-using MyRestaurant.Client.CustomerEntities;
 
 namespace MyRestaurant.Client;
 

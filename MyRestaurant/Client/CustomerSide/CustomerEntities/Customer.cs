@@ -1,26 +1,21 @@
 using System;
 using MyRestaurant.Client.OrderEntities;
 
-namespace MyRestaurant.Client.CustomerEntities
+namespace MyRestaurant.Client.CustomerSide.CustomerEntities
 {
     public class Customer : IDisposable, ICustomer
     {
-        private int _moneyAmount;
-
         private uint _id;
 
-        private bool _hasReceived;
+        private int _moneyAmount;
+
         private bool _hasPaid;
         private bool _disposed;
-
-        private Order _order;
+        
 
         public Customer(int moneyAmount, uint id)
         {
-            
-            _hasReceived = false;
             _hasPaid = false;
-            _order = null;
             _disposed = false;
             _moneyAmount = moneyAmount;
             _id = id;
@@ -38,37 +33,24 @@ namespace MyRestaurant.Client.CustomerEntities
         public int GetId() => Convert.ToInt32(_id);
 
         public int GetMoneyAmount() => _moneyAmount;
-        public Order GetOrder() => _order;
-
-        public void SetOrder(Order order) => _order = order;
-        public void ReceiveOrder(Order order)
+        public void Pay(Order order)
         {
-            _order = order;
-            _hasReceived = true;
-        }
-
-        public void DoPayOrder()
-        {
-            if (_order is null)
+            if (order is null)
                 throw new NullReferenceException("The order is null");
-            if (_moneyAmount - _order.GetTotal() < 0)
-                throw new NotEnoughCustomerMoneyException("");
-            
-            _moneyAmount -= _order.GetTotal();
-            _hasPaid = true;
+            try
+            {
+                if (_moneyAmount - order.GetTotal() < 0)
+                    throw new NotEnoughCustomerMoneyException("");
+
+                _moneyAmount -= order.GetTotal();
+            }
+            catch (OrderIsEmptyException e)
+            {
+                
+            }
         }
 
         public bool HasPaid() => _hasPaid;
-        public bool HasRecievedOrder() => _hasReceived;
-        public void GetOrder(Order order)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Order CheckoutOrder()
-        {
-            return new Order();
-        }
     }
 
 

@@ -1,6 +1,7 @@
 ﻿using System;
-using MyRestaurant.Client;
-using MyRestaurant.Client.CustomerEntities;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using MyRestaurant.Client.CustomerSide.CustomerEntities;
 using MyRestaurant.Client.OrderEntities;
 using MyRestaurant.CustomerEntities.OrderEntities.Item;
 
@@ -8,24 +9,16 @@ namespace MyRestaurant
 {
   internal class Program
   {
-    public static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
       ICustomer customer = new Customer(500, 0);
-      Order order = new Order();
+      Order order = new Order(customer);
       for (int i = 0; i < 10; ++i)
       {
-        order.AddItem(new OrderItem("Kartoshka", 100, new TimeSpan(0, 0, 10)));
+        order.GetOrderItems().Add(new OrderItem("Kartoshka", 100, new TimeSpan(0, 0, 3)));
       }
-      
-      customer.SetOrder(order);
-      try
-      {
-        customer.DoPayOrder();
-      }
-      catch (NotEnoughCustomerMoneyException ex)
-      {
-        Console.WriteLine("Not enough money");
-      }
+      Debug.Print("Cooking!");
+      await order.BeginMakeOrderAsync();
     }
   }
 }

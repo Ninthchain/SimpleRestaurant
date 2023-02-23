@@ -1,49 +1,57 @@
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using MyRestaurant.Client.CustomerSide.CustomerEntities;
 using MyRestaurant.CustomerEntities.OrderEntities.Item;
 
 namespace MyRestaurant.Client.OrderEntities
 {
     public class Order
     {
-        private List<IOrderItem> items;
+        private ICustomer _customer;
+
+        private int _totalPrice;
         
-        private bool _isOrdered;
+        private List<IOrderItem> _items;
+        
         private bool _isPaid;
         private bool _isDone;
-        private int _totalCost;
-        private ushort _id;
+
+        private uint _id;
         
-        private void CalculateTotal(ref int total)
+        public Order(ICustomer customer)
         {
-            foreach (var item in items)
-                total += item.GetCost();
-        }
-        public Order()
-        {
-            items = new List<IOrderItem>();
-            _isOrdered = false;
+            _items = new List<IOrderItem>();
             _isPaid = false;
-            _totalCost = 0;
-        }
-        
-        
-        public async void BeginMakeOrderAsync()
-        {
-            foreach (var item in items)
-                await item.BeginMake();
+            _isDone = false;
+            _totalPrice = 0;
             
+            _customer = customer;
         }
 
-        public void AddItem(IOrderItem item) => items.Add(item);
-        public void RemoveItem(IOrderItem item) => items.RemoveAt(items.FindIndex(x => x == item));
+        public void SetId(uint value) => _id = value;
         
-        public int GetTotal()
+        public void Done() => _isDone = true;
+        
+        public ICustomer GetCustomer() => _customer;
+        
+        public async Task BeginMakeOrderAsync()
         {
-            CalculateTotal(ref _totalCost);
-            return _totalCost;
+            foreach (var item in _items)
+                await item.BeginMake();
         }
-        public int GetId() => _id;
+
+        public List<IOrderItem> GetOrderItems() => _items;
+        public uint GetId() => _id;
 
         public bool IsPaid() => _isPaid;
+        public bool IsDone() => _isDone;
+
+        public int GetTotal()
+        {
+            if (_totalPrice <= 0) 
+                throw new OrderIsEmptyException("The order is empty");
+            return _totalPrice;
+        }
     }
 }
