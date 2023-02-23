@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace MyRestaurant.CustomerEntities.OrderEntities.Item;
+namespace MyRestaurant.Client.Objects.OrderObjects;
 
 internal class OrderItem : IOrderItem
 {
@@ -18,9 +18,9 @@ internal class OrderItem : IOrderItem
         this.name = name;
     }
 
-    public virtual int GetCost() => cost;
+    public int GetCost() => cost;
 
-    public virtual string GetName() => name;
+    public string GetName() => name;
     public TimeSpan GetMakeTime() => makingTime;
 
     public async Task BeginMake()
@@ -29,5 +29,5 @@ internal class OrderItem : IOrderItem
         isDone = true;
     }
 
-    public virtual bool IsDone() => isDone;
+    public bool IsDone() => isDone;
 }

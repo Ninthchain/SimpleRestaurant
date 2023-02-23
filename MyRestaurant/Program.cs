@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using MyRestaurant.Client.BaseCustomer;
+using MyRestaurant.Client.CustomerSide;
 using MyRestaurant.Client.CustomerSide.CustomerEntities;
+using MyRestaurant.Client.Objects;
+using MyRestaurant.Client.Objects.OrderObjects;
 using MyRestaurant.Client.OrderEntities;
-using MyRestaurant.CustomerEntities.OrderEntities.Item;
 
 namespace MyRestaurant
 {

@@ -1,4 +1,6 @@
 using System;
+using MyRestaurant.Client.BaseCustomer;
+using MyRestaurant.Client.Objects;
 using MyRestaurant.Client.OrderEntities;
 
 namespace MyRestaurant.Client.CustomerSide.CustomerEntities
@@ -40,7 +42,7 @@ namespace MyRestaurant.Client.CustomerSide.CustomerEntities
             try
             {
                 if (_moneyAmount - order.GetTotal() < 0)
-                    throw new NotEnoughCustomerMoneyException("");
+                    throw new NotEnoughMoneyException("");
 
                 _moneyAmount -= order.GetTotal();
             }

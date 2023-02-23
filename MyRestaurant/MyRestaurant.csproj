@@ -48,13 +48,15 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Client\CustomerSide\CustomerEntities\Customer.cs" />
-        <Compile Include="Client\CustomerSide\CustomerEntities\ICustomer.cs" />
-        <Compile Include="Client\CustomerSide\NotEnoughCustomerMoneyException.cs" />
-        <Compile Include="Client\OrderEntities\Item\IOrderItem.cs" />
-        <Compile Include="Client\OrderEntities\Item\OrderItem.cs" />
-        <Compile Include="Client\OrderEntities\Order.cs" />
-        <Compile Include="Client\OrderEntities\OrderIsEmptyException.cs" />
+        <Compile Include="Client\BaseCustomer\Customer.cs" />
+        <Compile Include="Client\BaseCustomer\ICustomer.cs" />
+        <Compile Include="Client\Exceptions\NotEnoughMoneyException.cs" />
+        <Compile Include="Client\Exceptions\OrderIsEmptyException.cs" />
+        <Compile Include="Client\Objects\Order.cs" />
+        <Compile Include="Client\Objects\OrderObjects\IOrderItem.cs" />
+        <Compile Include="Client\Objects\OrderObjects\OrderItem.cs" />
+        <Compile Include="Client\Objects\Register.cs" />
+        <Compile Include="Client\Objects\RegisterObjects\RegisterSlot.cs" />
         <Compile Include="Client\RestaurantSide\Restaurant.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />

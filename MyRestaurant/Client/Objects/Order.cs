@@ -1,10 +1,12 @@
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using MyRestaurant.Client.CustomerSide.CustomerEntities;
-using MyRestaurant.CustomerEntities.OrderEntities.Item;
+using MyRestaurant.Client.BaseCustomer;
+using MyRestaurant.Client.CustomerSide;
+using MyRestaurant.Client.Objects.OrderObjects;
+using MyRestaurant.Client.OrderEntities;
 
-namespace MyRestaurant.Client.OrderEntities
+
+namespace MyRestaurant.Client.Objects
 {
     public class Order
     {
@@ -51,6 +53,7 @@ namespace MyRestaurant.Client.OrderEntities
         {
             if (_totalPrice <= 0) 
                 throw new OrderIsEmptyException("The order is empty");
+            
             return _totalPrice;
         }
     }
