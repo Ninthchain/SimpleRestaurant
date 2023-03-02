@@ -8,7 +8,6 @@ public class Register
 {
     private Queue<ICustomer> _queue;
     private int _queueSize;
-    
     private int _slotAmount;
 
     public Register(int slotAmount)

@@ -35,22 +35,6 @@ namespace MyRestaurant.Client.CustomerSide.CustomerEntities
         public int GetId() => Convert.ToInt32(_id);
 
         public int GetMoneyAmount() => _moneyAmount;
-        public void Pay(Order order)
-        {
-            if (order is null)
-                throw new NullReferenceException("The order is null");
-            try
-            {
-                if (_moneyAmount - order.GetTotal() < 0)
-                    throw new NotEnoughMoneyException("");
-
-                _moneyAmount -= order.GetTotal();
-            }
-            catch (OrderIsEmptyException e)
-            {
-                
-            }
-        }
 
         public bool HasPaid() => _hasPaid;
     }

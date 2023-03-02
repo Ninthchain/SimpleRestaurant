@@ -5,29 +5,29 @@ namespace MyRestaurant.Client.Objects.OrderObjects;
 
 internal class OrderItem : IOrderItem
 {
-    private TimeSpan makingTime;
-    private int cost;
-    private bool isDone;
-    private string name;
+    private TimeSpan _makingTime;
+    private int _cost;
+    private bool _isDone;
+    private string _name;
 
     public OrderItem(string name, int cost, TimeSpan makeTime)
     {
-        makingTime = makeTime;
-        isDone = false;
-        this.cost = cost;
-        this.name = name;
+        _makingTime = makeTime;
+        _isDone = false;
+        this._cost = cost;
+        this._name = name;
     }
 
-    public int GetCost() => cost;
+    public int GetCost() => _cost;
 
-    public string GetName() => name;
-    public TimeSpan GetMakeTime() => makingTime;
+    public string GetName() => _name;
+    public TimeSpan GetMakeTime() => _makingTime;
 
     public async Task BeginMake()
     {
-        await Task.Delay(makingTime);
-        isDone = true;
+        await Task.Delay(_makingTime);
+        _isDone = true;
     }
 
-    public bool IsDone() => isDone;
+    public bool IsDone() => _isDone;
 }

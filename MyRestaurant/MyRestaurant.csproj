@@ -55,14 +55,11 @@
         <Compile Include="Client\Objects\Order.cs" />
         <Compile Include="Client\Objects\OrderObjects\IOrderItem.cs" />
         <Compile Include="Client\Objects\OrderObjects\OrderItem.cs" />
-        <Compile Include="Client\Objects\Register.cs" />
-        <Compile Include="Client\Objects\RegisterObjects\RegisterSlot.cs" />
+        <Compile Include="Client\Objects\OrderObjects\OrderStatus.cs" />
+        <Compile Include="Client\Objects\PaymentTerminal.cs" />
         <Compile Include="Client\RestaurantSide\Restaurant.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="Server" />
     </ItemGroup>
     <ItemGroup>
       <None Include="App.config" />

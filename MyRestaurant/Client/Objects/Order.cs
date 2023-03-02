@@ -20,6 +20,8 @@ namespace MyRestaurant.Client.Objects
         private bool _isDone;
 
         private uint _id;
+
+        private OrderStatus _currentStatus;
         
         public Order(ICustomer customer)
         {
